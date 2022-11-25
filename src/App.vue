@@ -1,11 +1,16 @@
 <template>
   <div class="app">
     <h1>Страница с постами</h1>
-    <MyButton
-      @click="showDialog"
-      style="margin: 15px 0">
-      Создать пост
-    </MyButton>
+    <div class="app__btns">
+      <MyButton
+        @click="showDialog">
+        Создать пост
+      </MyButton>
+      <MySelect
+        v-model="selectedSort"
+        :options="sortOptions"
+      />
+    </div>
 
     <MyDialog v-model:show="dialogVisibleError">
       <h1 style="color: brown"> {{this.error.code}} </h1>
@@ -41,6 +46,11 @@ export default {
       isPostLoading: false,
       error: null,
       dialogVisibleError: false,
+      selectedSort: '',
+      sortOptions: [
+        {value: 'title', name: 'По названию'},
+        {value: 'body', name: 'По описанию'},
+      ]
     };
   },
   methods: {
@@ -82,5 +92,10 @@ export default {
 
 .app {
   padding: 20px;
+}
+.app__btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
 }
 </style>
