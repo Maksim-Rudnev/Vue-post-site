@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
-  <select v-model="modelValue" @change="changeOption">
-    <option disabled value="">Выберите из списка</option>
+  <select @change="changeOption">
+    <option  disabled value="">Выберите из списка</option>
     <option
       v-for="option in options"
       :key="option.value"
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'MySelect',
+  name: 'my-select',
   props: {
     modelValue: {
       type: String,

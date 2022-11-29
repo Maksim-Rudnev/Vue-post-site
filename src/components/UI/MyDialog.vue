@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'MyDialog',
+  name: 'my-dialog',
   props: {
     show: {
       type: Boolean,
